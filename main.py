@@ -28,7 +28,8 @@ autoencoder.compile(optimizer='adam', loss='binary_crossentropy')
 #from keras.utils import plot_model
 #plot_model(autoencoder, to_file='model.png', show_shapes=True)
 
-x_train, x_test = input.read()
+x_train, x_test = input.read('res.json')
+#x_train, x_test = input.read('min_ht.json')
 x_train = x_train.astype('float32') / 255.
 x_test = x_test.astype('float32') / 255.
 print(x_train.shape)
@@ -36,8 +37,10 @@ print(x_train.shape)
 autoencoder.fit(
         x_train,
         x_train,
-        nb_epoch=50,
+        nb_epoch=100,
         batch_size=128,
         shuffle=True,
         validation_data=(x_test, x_test),
         callbacks=[TensorBoard(log_dir='/tmp/autoencoder')])
+
+autoencoder.save('model.h5')

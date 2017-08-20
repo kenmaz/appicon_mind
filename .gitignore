@@ -2,3 +2,6 @@ crawler/crawler/bk
 crawler/crawler/imgs
 __pycache__
 *.json
+*.png
+*.swp
+*.h5

@@ -12,5 +12,6 @@ class CrawlerItem(scrapy.Item):
     image_urls = Field()
     images = Field()
     app_name = Field()
+    app_url = Field()
     genre_name = Field()
     descriptions = Field()
